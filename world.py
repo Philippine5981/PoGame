@@ -1,15 +1,20 @@
 import random
 from constants import *
 
-
-def create_world():
+#objet = lorsque je lance le jeu je choisis quel objet va apparaitre (dans main())
+def create_world(objet):
     world = []
-    for y in range(WORLD_HEIGHT):
+    for y in range (10):
         for x in range(WORLD_WIDTH):
-            if random.randint(0, 9) == 0 and (x, y) != (0, 0):
-                world.append(["cookie"])
+            if random.randint(0, 10) == 0 and (x, y) != (0, 0):
+                world.append([objet])
+            # elif random.randint(0, 10) == 0 and (x, y) != (0, 0):
+            #     world.append(["gel"])
             else:
                 world.append([])
+    for y in range(WORLD_HEIGHT-10):
+        for x in range(WORLD_WIDTH):
+            world.append([])
 
     return world
 
